@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'utils/utils.dart';
+import 'list.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
@@ -70,9 +71,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                   onPressed: () async {
                     final r = await login();
                     print(r);
-                    //if (r == 200)
-                    //Navigator.push(context,
-                    //    MaterialPageRoute(builder: (_) => const MyApp()));
+                    if (r == 200) {
+                      // ignore: use_build_context_synchronously
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const ListWidget()));
+                    }
                   },
                   child: const Text(
                     'Login',
